@@ -1,0 +1,20 @@
+BLOOM by Ana — Site oficial
+===========================
+
+Este pacote contém o site completo do ateliê BLOOM by Ana.
+Como publicar o site (guia resumido — o guia completo em PDF acompanha este pacote):
+
+1. Criar conta gratuita no GitHub (github.com)
+2. Criar um repositório novo (nome sugerido: bloom-site) e carregar TODOS os ficheiros desta pasta
+   (botão "uploading an existing file" → arrastar tudo → Commit changes)
+3. Criar conta no Vercel (vercel.com) usando a conta GitHub
+4. No Vercel: Add New → Project → Import o repositório bloom-site → Deploy
+5. Depois do deploy: Settings → Domains → adicionar bloombyana.pt (e www.bloombyana.pt)
+6. No painel do sítio onde comprou o domínio: apontar o domínio para o Vercel
+   (registos DNS que o próprio Vercel mostra, normalmente:
+     A     @      76.76.21.21
+     CNAME www    cname.vercel-dns.com
+   )
+7. Aguardar 15 min a algumas horas e o site fica no ar com HTTPS automático.
+
+Dúvidas? Seguir o guia em PDF passo-a-passo, com imagens.
