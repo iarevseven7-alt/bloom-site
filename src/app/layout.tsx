@@ -14,9 +14,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.bloombyana.pt"),
   title: "BLOOM by Ana · Arte Floral — Póvoa de Varzim",
   description:
-    "Ateliê de arte floral em Póvoa de Varzim. Casamentos, eventos, ramos de noiva, tiaras e flores preservadas — criações florais personalizadas, flor a flor. Marcações pelo WhatsApp.",
+    "Ateliê de arte floral na Póvoa de Varzim: casamentos, ramos de noiva, tiaras, eventos e flores preservadas. Criações personalizadas, flor a flor.",
   keywords: [
     "arte floral",
     "ateliê floral",
@@ -26,9 +27,81 @@ export const metadata: Metadata = {
     "tiaras florais",
     "Póvoa de Varzim",
   ],
-  icons: {
-    icon: "/images/bloom/logo-bloom.png",
+  alternates: {
+    canonical: "/",
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/images/bloom/logo-bloom.png", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: "BLOOM by Ana",
+    title: "BLOOM by Ana · Arte Floral — Póvoa de Varzim",
+    description:
+      "Ateliê de arte floral na Póvoa de Varzim: casamentos, ramos de noiva, tiaras, eventos e flores preservadas. Criações personalizadas, flor a flor.",
+    locale: "pt_PT",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "BLOOM by Ana — arte floral na Póvoa de Varzim",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "BLOOM by Ana · Arte Floral — Póvoa de Varzim",
+    description:
+      "Ateliê de arte floral na Póvoa de Varzim: casamentos, ramos de noiva, tiaras, eventos e flores preservadas. Criações personalizadas, flor a flor.",
+    images: ["/og-image.jpg"],
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Florist",
+  "name": "BLOOM by Ana",
+  "url": "https://www.bloombyana.pt/",
+  "image": "https://www.bloombyana.pt/og-image.jpg",
+  "logo": "https://www.bloombyana.pt/images/bloom/logo-bloom.png",
+  "telephone": "+351919113667",
+  "email": "ana-monica.lima@hotmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rua Tenente Valadim 82",
+    "addressLocality": "Póvoa de Varzim",
+    "addressCountry": "PT",
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:30",
+      "closes": "12:30",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "14:30",
+      "closes": "19:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "09:00",
+      "closes": "12:30",
+    },
+  ],
+  "sameAs": [
+    "https://www.instagram.com/bloomby_anaportugal_/",
+    "https://wa.me/351919113667",
+  ],
 };
 
 const googleFontsHref =
@@ -48,6 +121,10 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="stylesheet" href={googleFontsHref} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {children}
         <Toaster />
       </body>
